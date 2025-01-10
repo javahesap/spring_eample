@@ -1,0 +1,5 @@
+package springorm.example.controller;
+
+public class ProductController {
+
+}

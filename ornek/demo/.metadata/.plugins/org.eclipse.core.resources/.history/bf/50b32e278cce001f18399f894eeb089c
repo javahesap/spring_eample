@@ -1,0 +1,5 @@
+package springorm.example.repostory;
+
+public class ProductRepository {
+
+}

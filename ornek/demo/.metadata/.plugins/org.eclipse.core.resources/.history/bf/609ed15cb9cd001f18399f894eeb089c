@@ -1,0 +1,59 @@
+package client.example.myclient;
+
+
+package client.example.myclient;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@SpringBootApplication
+public class ClientcookieApplication implements CommandLineRunner {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ClientcookieApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setRequestFactory(clientHttpRequestFactory());
+        
+        // Çerezlerin saklanması için bir HttpHeaders nesnesi
+        HttpHeaders headers = new HttpHeaders();
+
+        // 1. Çerez oluşturma isteği
+        String setCookieUrl = "http://localhost:8080/set-cookie";
+        ResponseEntity<String> setResponse = restTemplate.getForEntity(setCookieUrl, String.class);
+
+        // Sunucudan dönen çerezleri yakalayalım
+        List<String> cookies = setResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
+        if (cookies != null) {
+            cookies.forEach(cookie -> headers.add(HttpHeaders.COOKIE, cookie));
+        }
+        System.out.println("Response from /set-cookie: " + setResponse.getBody());
+
+        // 2. Çerez okuma isteği
+        String getCookieUrl = "http://localhost:8080/get-cookie";
+        HttpEntity<String> request = new HttpEntity<>(headers);
+        ResponseEntity<String> getResponse = restTemplate.postForEntity(getCookieUrl, request, String.class);
+        System.out.println("Response from /get-cookie: " + getResponse.getBody());
+    }
+
+    private ClientHttpRequestFactory clientHttpRequestFactory() {
+        // Apache HttpComponents kullanarak çerezleri otomatik olarak yönetmek
+        return new HttpComponentsClientHttpRequestFactory();
+    }
+}
+
+

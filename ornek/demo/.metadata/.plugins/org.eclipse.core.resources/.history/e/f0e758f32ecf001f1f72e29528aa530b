@@ -1,0 +1,12 @@
+spring.datasource.url=jdbc:mariadb://127.0.0.1:3306/contact
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+
+# JPA ve Hibernate ayarlar\u0131
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDB103Dialect
+spring.datasource.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
+
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true

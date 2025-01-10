@@ -1,0 +1,14 @@
+package springorm.example.repostory;
+
+import java.util.UUID;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import springorm.example.model.Product;
+
+interface ProductRepository extends JpaRepository<Product, UUID> {
+	
+	
+	
+	
+}

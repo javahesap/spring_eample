@@ -1,0 +1,8 @@
+
+
+ spring.application.name=springorm
+
+spring.datasource.url=jdbc:mariadb://localhost:3306/contact
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+

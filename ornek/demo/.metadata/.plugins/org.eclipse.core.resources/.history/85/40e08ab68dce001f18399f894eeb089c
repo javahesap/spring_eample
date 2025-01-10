@@ -1,0 +1,9 @@
+
+
+spring.application.name=springorm
+ application.properties
+ spring.datasource.url=jdbc:mariadb:localhost:3306/contact
+ spring.datasource.username=root
+ spring.datasource.password=
+ spring.jpa.hibernate.ddl-auto=update
+ spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect

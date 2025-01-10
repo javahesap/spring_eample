@@ -1,0 +1,5 @@
+package springorm.example.model;
+
+public class Product {
+
+}
