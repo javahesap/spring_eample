@@ -14,17 +14,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
-
-
 @Configuration
 public class UrundataInitializer {
 
     @Bean
-    CommandLineRunner initDatabase(CategoryRepository categoryRepository, UrunRepository urunRepository) {
-
-    	List<Urun> urunlercontrol = StreamSupport.stream(urunRepository.findAll().spliterator(), false).toList();
-
-    	if (!urunlercontrol.isEmpty()) {
+    public CommandLineRunner initDatabase(CategoryRepository categoryRepository, UrunRepository urunRepository) {
         return args -> {
             // Kategoriler oluşturuluyor
             List<Category> categories = List.of(
@@ -33,26 +27,31 @@ public class UrundataInitializer {
                 new Category(UUID.randomUUID(), "Giyim"),
                 new Category(UUID.randomUUID(), "Ev & Yaşam")
             );
+
+            // Kategorileri veritabanına kaydet (Her durumda eklenebilir)
             categoryRepository.saveAll(categories);
 
-            // Ürünler oluşturuluyor
-            List<Urun> urunler = new ArrayList<>();
-            for (int i = 0; i < 100; i++) {
-                Urun urun = new Urun();
-                urun.setId(UUID.randomUUID());
-                urun.setName("Ürün " + (i + 1));
-                urun.setPrice(Math.random() * 100);
-                urun.setCategory(categories.get(i % categories.size())); // Kategoriler rastgele atanıyor
-                urunler.add(urun);
-            }
-            urunRepository.saveAll(urunler);
-        };
+            // Ürünler veritabanında var mı diye kontrol et
+            List<Urun> urunlercontrol = StreamSupport.stream(urunRepository.findAll().spliterator(), false).toList();
 
+            // Eğer ürünler veritabanında yoksa, yeni ürünler eklenir
+            if (urunlercontrol.isEmpty()) {
+                // Ürünler oluşturuluyor
+                List<Urun> urunler = new ArrayList<>();
+                for (int i = 0; i < 100; i++) {
+                    Urun urun = new Urun();
+                    urun.setId(UUID.randomUUID());
+                    urun.setName("Ürün " + (i + 1));
+                    urun.setPrice(Math.random() * 100);
+                    urun.setCategory(categories.get(i % categories.size())); // Kategoriler rastgele atanıyor
+                    urunler.add(urun);
+                }
+
+                // Ürünleri veritabanına kaydet
+                urunRepository.saveAll(urunler);
+            }
+        };
     }
-    	
-        return null;	
-   }
-    
 }
 
 
