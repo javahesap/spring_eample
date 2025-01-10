@@ -1,0 +1,59 @@
+/.metadata/
+# Ignore Maven build files
+target/
+*.jar
+*.war
+*.ear
+
+# Ignore Gradle build files
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# Node.js modules (if you're using frontend build tools like npm or yarn)
+node_modules/
+
+# Spring Boot specific
+*.log
+
+# Logs
+logs/
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Maven wrapper
+.mvn/wrapper/
+
+# Gradle wrapper
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# Temporary files
+*.swp
+*.swo
+
+# JetBrains
+.idea/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# .env files for sensitive data
+.env

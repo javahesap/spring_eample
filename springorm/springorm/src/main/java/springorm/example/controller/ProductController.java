@@ -53,4 +53,6 @@ class ProductController {
     public void deleteProduct(@PathVariable UUID id) {
         repository.deleteById(id);
     }
+    
+    
 }
