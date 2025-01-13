@@ -29,8 +29,12 @@ public class UrundataInitializer {
             );
 
             // Kategorileri veritabanına kaydet (Her durumda eklenebilir)
+            
+            List<Category> category = StreamSupport.stream(categoryRepository.findAll().spliterator(), false).toList();
+            
+            if (category.isEmpty()) {
             categoryRepository.saveAll(categories);
-
+            }
             // Ürünler veritabanında var mı diye kontrol et
             List<Urun> urunlercontrol = StreamSupport.stream(urunRepository.findAll().spliterator(), false).toList();
 
