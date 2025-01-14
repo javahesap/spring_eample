@@ -41,4 +41,14 @@ public class CategoryController {
             .orElseThrow(() -> new RuntimeException("Category not found"));
         return category.getUruns(); // Kategoriye bağlı ürünlerin listesi
     }
+
+    
+<<<<<<< Tabnine <<<<<<<
+@GetMapping("/{id}/products")
+public List<Urun> getProductsByCategory(@PathVariable UUID id) {
+    Category category = categoryRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Category not found"));
+    return category.getUruns(); // Kategoriye bağlı ürünlerin listesi
+}
+>>>>>>> Tabnine >>>>>>>// 
 }

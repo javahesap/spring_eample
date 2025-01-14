@@ -18,7 +18,7 @@ import springorm.example.repostory.UrunRepository;
 public class UrunController {
 
 	private UrunRepository urunrepository;
-
+	private UrunRepository urunRepositorysoting;
     private final CategoryRepository categoryRepository;
 
 	public UrunController(UrunRepository urunrepository, CategoryRepository categoryRepository) {
@@ -86,6 +86,8 @@ public class UrunController {
 	    return "Kategori: " + categoryName + " için Ortalama Fiyat: " + 
 	           (averagePrice != null ? averagePrice : "Hesaplanamadı");
 	}
+	
+	
 	
 	
 
