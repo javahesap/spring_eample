@@ -41,4 +41,6 @@ public class CategoryController {
             .orElseThrow(() -> new RuntimeException("Category not found"));
         return category.getUruns(); // Kategoriye bağlı ürünlerin listesi
     }
+
+    
 }
