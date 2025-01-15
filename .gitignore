@@ -64,7 +64,11 @@ gradle-wrapper.properties
 .metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.markers.snap
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
+=======
+/.markers.snap/
+>>>>>>> 6908146920d8b1f9e20def4fce337408aa69e3f1
 =======
 /.markers.snap/
 >>>>>>> 6908146920d8b1f9e20def4fce337408aa69e3f1

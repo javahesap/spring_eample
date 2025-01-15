@@ -520,6 +520,9 @@
 2025-01-15 14:41:41,115 [Worker-878: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-01-15 14:41:41,121 [Worker-878: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-01-15 14:41:41,122 [Worker-878: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\besir.aydemir\Desktop\kurs\configration\configration\src\test\resources
+<<<<<<< HEAD
 2025-01-15 15:05:28,406 [Worker-905: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-01-15 15:05:28,416 [Worker-905: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-01-15 15:05:28,417 [Worker-905: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\besir.aydemir\Desktop\kurs\springorm\springorm\src\test\resources
+=======
+>>>>>>> 6908146920d8b1f9e20def4fce337408aa69e3f1
